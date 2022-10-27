@@ -1,8 +1,8 @@
 import pandas as pd
 
 
-DATALAKE_RAW = 'C:/Users/mhsilva/Documents/Workspace/acoes/data/raw/'
-DATALAKE_WORK = 'C:/Users/mhsilva/Documents/Workspace/acoes/data/work/'
+DATALAKE_RAW = 'data/raw/'
+DATALAKE_WORK = 'data/work/'
 
 
 def create_carteira():

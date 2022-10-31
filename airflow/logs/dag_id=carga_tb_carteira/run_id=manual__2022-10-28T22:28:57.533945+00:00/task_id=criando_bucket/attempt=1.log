@@ -1,0 +1,26 @@
+[2022-10-28T22:29:04.061+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: carga_tb_carteira.criando_bucket manual__2022-10-28T22:28:57.533945+00:00 [queued]>
+[2022-10-28T22:29:04.068+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: carga_tb_carteira.criando_bucket manual__2022-10-28T22:28:57.533945+00:00 [queued]>
+[2022-10-28T22:29:04.068+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-28T22:29:04.069+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2022-10-28T22:29:04.069+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-28T22:29:04.083+0000] {taskinstance.py:1383} INFO - Executing <Task(GCSCreateBucketOperator): criando_bucket> on 2022-10-28 22:28:57.533945+00:00
+[2022-10-28T22:29:04.088+0000] {standard_task_runner.py:55} INFO - Started process 16305 to run task
+[2022-10-28T22:29:04.092+0000] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'carga_tb_carteira', 'criando_bucket', 'manual__2022-10-28T22:28:57.533945+00:00', '--job-id', '61', '--raw', '--subdir', 'DAGS_FOLDER/carga_tb_carteira.py', '--cfg-path', '/tmp/tmpeuacozka']
+[2022-10-28T22:29:04.095+0000] {standard_task_runner.py:83} INFO - Job 61: Subtask criando_bucket
+[2022-10-28T22:29:04.150+0000] {task_command.py:376} INFO - Running <TaskInstance: carga_tb_carteira.criando_bucket manual__2022-10-28T22:28:57.533945+00:00 [running]> on host cs-1097450612417-default
+[2022-10-28T22:29:04.209+0000] {taskinstance.py:1590} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@example.com
+AIRFLOW_CTX_DAG_OWNER=Marcelo Henrique
+AIRFLOW_CTX_DAG_ID=carga_tb_carteira
+AIRFLOW_CTX_TASK_ID=criando_bucket
+AIRFLOW_CTX_EXECUTION_DATE=2022-10-28T22:28:57.533945+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-10-28T22:28:57.533945+00:00
+[2022-10-28T22:29:04.216+0000] {base.py:71} INFO - Using connection ID 'gcp_conn' for task execution.
+[2022-10-28T22:29:04.229+0000] {gcs.py:873} INFO - Creating Bucket: carteira_acoes; Location: southamerica-east1; Storage Class: NEARLINE
+[2022-10-28T22:29:05.548+0000] {gcs.py:161} WARNING - Bucket carteira_acoes already exists
+[2022-10-28T22:29:05.554+0000] {taskinstance.py:1401} INFO - Marking task as SUCCESS. dag_id=carga_tb_carteira, task_id=criando_bucket, execution_date=20221028T222857, start_date=20221028T222904, end_date=20221028T222905
+[2022-10-28T22:29:05.588+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2022-10-28T22:29:05.620+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

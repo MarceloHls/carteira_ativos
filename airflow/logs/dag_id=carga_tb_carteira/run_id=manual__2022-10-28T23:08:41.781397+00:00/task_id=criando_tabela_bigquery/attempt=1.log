@@ -1,0 +1,24 @@
+[2022-10-28T23:09:24.646+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: carga_tb_carteira.criando_tabela_bigquery manual__2022-10-28T23:08:41.781397+00:00 [queued]>
+[2022-10-28T23:09:24.656+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: carga_tb_carteira.criando_tabela_bigquery manual__2022-10-28T23:08:41.781397+00:00 [queued]>
+[2022-10-28T23:09:24.656+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-28T23:09:24.656+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2022-10-28T23:09:24.656+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-28T23:09:24.675+0000] {taskinstance.py:1383} INFO - Executing <Task(BigQueryCreateExternalTableOperator): criando_tabela_bigquery> on 2022-10-28 23:08:41.781397+00:00
+[2022-10-28T23:09:24.680+0000] {standard_task_runner.py:55} INFO - Started process 24700 to run task
+[2022-10-28T23:09:24.684+0000] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'carga_tb_carteira', 'criando_tabela_bigquery', 'manual__2022-10-28T23:08:41.781397+00:00', '--job-id', '115', '--raw', '--subdir', 'DAGS_FOLDER/carga_tb_carteira.py', '--cfg-path', '/tmp/tmpslhc34ey']
+[2022-10-28T23:09:24.687+0000] {standard_task_runner.py:83} INFO - Job 115: Subtask criando_tabela_bigquery
+[2022-10-28T23:09:24.745+0000] {task_command.py:376} INFO - Running <TaskInstance: carga_tb_carteira.criando_tabela_bigquery manual__2022-10-28T23:08:41.781397+00:00 [running]> on host cs-1097450612417-default
+[2022-10-28T23:09:24.811+0000] {taskinstance.py:1590} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@example.com
+AIRFLOW_CTX_DAG_OWNER=Marcelo Henrique
+AIRFLOW_CTX_DAG_ID=carga_tb_carteira
+AIRFLOW_CTX_TASK_ID=criando_tabela_bigquery
+AIRFLOW_CTX_EXECUTION_DATE=2022-10-28T23:08:41.781397+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-10-28T23:08:41.781397+00:00
+[2022-10-28T23:09:24.822+0000] {base.py:71} INFO - Using connection ID 'gcp_conn' for task execution.
+[2022-10-28T23:09:25.245+0000] {taskinstance.py:1401} INFO - Marking task as SUCCESS. dag_id=carga_tb_carteira, task_id=criando_tabela_bigquery, execution_date=20221028T230841, start_date=20221028T230924, end_date=20221028T230925
+[2022-10-28T23:09:25.297+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2022-10-28T23:09:25.313+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,2 +1,1 @@
-export PYTHONPATH="${PYTHONPATH}:C:/Users/mhsilva/Documents/Workspace/acoes"
-set PYTHONPATH="${PYTHONPATH}:C:/Users/mhsilva/Documents/Workspace/acoes"
+export PYTHONPATH="/home/marcelohenriqueleite35/carteira_ativos/jobs"

@@ -1,0 +1,62 @@
+[
+    {
+        "name": "EMPRESA",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "SIMBOLO",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "QUANTIDADE",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "VALOR_MEDIO_PAGO",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "VALOR_ATUAL",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "VALOR_ATUAL_INVESTIDO",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "POSICAO_ATUAL",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "META",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "DEFICT",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "OBJETIVO",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "LUCRO_VALOR",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "LUCRO",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+    }
+]

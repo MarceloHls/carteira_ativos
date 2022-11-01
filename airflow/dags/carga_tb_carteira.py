@@ -15,7 +15,8 @@ from airflow.contrib.operators.bigquery_operator import BigQueryOperator
 from airflow import DAG
 from datetime import datetime, timedelta
 from airflow.operators.python_operator import PythonOperator
-import sys,time
+import sys,time,os,json
+
 
 sys.path.append('/home/marcelohenriqueleite35/carteira_ativos/jobs')
 
@@ -28,7 +29,13 @@ from tb_carteira.add_currently_value import add_value
 from tb_carteira.add_goal import add_goal
 from tb_carteira.add_profity import add_profit
 
-# # Cria as variaveis utilizando as chaves/valores do objeto variables
+# Cria as variaveis utilizando as chaves/valores do objeto variables
+
+local = os.environ['PWD']
+
+with open(f'{local}/config/schema_tb_carteira.json','r') as file:
+    schema_tb_carteira = json.load(file)
+
 
 
 project = 'tech-visa-jobs'
@@ -139,18 +146,7 @@ with DAG(
         destination_project_dataset_table=f'{project}.{dataset}.{table_name}',
         bucket=bucket_name,
         source_objects=['TB_CARTEIRA.csv'],
-        schema_fields=[{"name": "EMPRESA", "type": "STRING", "mode": "NULLABLE"},
-{"name": "SIMBOLO", "type": "STRING", "mode": "NULLABLE"},
-{"name": "QUANTIDADE", "type": "FLOAT64", "mode": "NULLABLE"},
-{"name": "VALOR_MEDIO_PAGO", "type": "FLOAT64", "mode": "NULLABLE"},
-{"name": "VALOR_ATUAL", "type": "INT64", "mode": "NULLABLE"},
-{"name": "VALOR_ATUAL_INVESTIDO", "type": "INT64", "mode": "NULLABLE"},
-{"name": "POSICAO_ATUAL", "type": "STRING", "mode": "NULLABLE"},
-{"name": "META", "type": "FLOAT64", "mode": "NULLABLE"},
-{"name": "DEFICT", "type": "STRING", "mode": "NULLABLE"},
-{"name": "OBJETIVO", "type": "STRING", "mode": "NULLABLE"},
-{"name": "LUCRO_VALOR", "type": "FLOAT64", "mode": "NULLABLE"},
-{"name": "LUCRO", "type": "FLOAT64", "mode": "NULLABLE"}],
+        schema_fields=schema_tb_carteira,
         autodetect=True,
         skip_leading_rows=1,
         #  project_id=project,

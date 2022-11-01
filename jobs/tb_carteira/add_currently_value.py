@@ -1,9 +1,14 @@
 import pandas as pd
+import os,json
 
 
-DATALAKE_RAW = 'data/raw/'
-DATALAKE_WORK = 'data/work/'
-DATALAKE_TRUSTED = 'data/trusted/'
+local = os.environ['PWD']
+
+with open(f'{local}/config/lake.json','r') as file:
+    variables = json.load(file)
+
+for variable in variables.keys():
+    variables[variable] =  variables[variable].replace('local',local)
 
 
 
@@ -24,7 +29,7 @@ def add_value():
     """
     Passo 4
     """
-    df_carteira = pd.read_csv(DATALAKE_WORK + 'carteira_fase_03.csv')
+    df_carteira = pd.read_csv(variables['DATALAKE_WORK'] + 'carteira_fase_03.csv')
     df_carteira = __create_valor_atual_investido(df_carteira)
     df_carteira = __create_currently_posicao(df_carteira)
-    df_carteira.to_csv(DATALAKE_WORK + 'carteira_fase_04' + '.csv',index=None)
+    df_carteira.to_csv(variables['DATALAKE_WORK'] + 'carteira_fase_04' + '.csv',index=None)

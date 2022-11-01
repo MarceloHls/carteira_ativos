@@ -1,0 +1,5 @@
+{
+    "DATALAKE_RAW": "local/data/raw/",
+    "DATALAKE_WORK": "local/data/work/",
+    "DATALAKE_TRUSTED": "local/data/trusted/"
+}

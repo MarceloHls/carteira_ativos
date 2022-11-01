@@ -1,9 +1,13 @@
 import pandas as pd
+import os,json
 
+local = os.environ['PWD']
 
-DATALAKE_RAW = 'data/raw/'
-DATALAKE_WORK = 'data/work/'
-DATALAKE_TRUSTED = 'data/trusted/'
+with open(f'{local}/config/lake.json','r') as file:
+    variables = json.load(file)
+
+for variable in variables.keys():
+    variables[variable] =  variables[variable].replace('local',local)
 
 
 
@@ -51,12 +55,12 @@ def add_goal():
     """
     Passo 5 
     """
-    df_carteira = pd.read_csv(DATALAKE_WORK + 'carteira_fase_04.csv')
-    df_meta_acoes = pd.read_csv(DATALAKE_RAW + 'meta_acoes.csv')
+    df_carteira = pd.read_csv(variables['DATALAKE_WORK'] + 'carteira_fase_04.csv')
+    df_meta_acoes = pd.read_csv(variables['DATALAKE_RAW'] + 'meta_acoes.csv')
 
     df_meta_acoes = create_median_meta_empresa(df_meta_acoes)
     df_carteira = create_meta_and_focus(df_meta_acoes,df_carteira)
-    df_carteira.to_csv(DATALAKE_WORK + 'carteira_fase_05' + '.csv',index=None)
+    df_carteira.to_csv(variables['DATALAKE_WORK'] + 'carteira_fase_05' + '.csv',index=None)
 
 
 

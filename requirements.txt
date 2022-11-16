@@ -3,7 +3,6 @@ aiohttp==3.8.3
 aiosignal==1.2.0
 alembic==1.8.1
 anyio==3.6.2
-apache-airflow==2.4.2
 apache-airflow-providers-common-sql==1.2.0
 apache-airflow-providers-ftp==3.1.0
 apache-airflow-providers-google==8.4.0
@@ -43,6 +42,7 @@ dnspython==2.2.1
 docutils==0.19
 email-validator==1.3.0
 exceptiongroup==1.0.0
+findspark==2.0.1
 Flask==2.2.2
 Flask-AppBuilder==4.1.4
 Flask-Babel==2.0.0
@@ -149,6 +149,7 @@ prison==0.2.1
 proto-plus==1.19.6
 protobuf==3.20.0
 psutil==5.9.3
+py4j==0.10.9.5
 pyarrow==6.0.1
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
@@ -159,6 +160,7 @@ PyJWT==2.6.0
 pyOpenSSL==22.0.0
 pyparsing==3.0.9
 pyrsistent==0.18.1
+pyspark==3.3.1
 python-daemon==2.3.2
 python-dateutil==2.8.2
 python-nvd3==0.15.0

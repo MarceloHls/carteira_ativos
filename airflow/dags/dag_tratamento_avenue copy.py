@@ -22,12 +22,17 @@ sys.path.append('/home/marcelohenriqueleite35/carteira_ativos/jobs')
 
 from datalake.create_datalake import create_datalake
 # from avenue.unificar_dados_raw import unificando_dados_avenue
-from avenue.unficando_dados_avenue import create_file_avenue
+from avenue.unficando_dados_avenue import unificando
 from avenue.tratamento_avenue import tratamento_avenue
 from avenue.criando_historico import create_historic
 from avenue.criando_carteira import create_carteira
 from avenue.add_valor_acoes import add_valor_acao
 from avenue.add_currently_value import add_value 
+
+from clear.criando_datasets_clear import criando_datasets_clear 
+from clear.criando_carteira_clear import criando_carteira_clear 
+
+from tabelas.carteira import criando_tabela_carteria 
 
 
 local = os.environ['PWD']
@@ -41,7 +46,7 @@ dataset = 'carteira_acoes'
 location = 'US'
 bucket_name='carteira_acoes'
 GCP_CONN='gcp_conn'
-table_name = 'TB_CARTEIRA_AVENUE'
+table_name = 'TB_CARTEIRA'
 
 default_args = {
     'owner': 'Marcelo Henrique',
@@ -73,7 +78,7 @@ with DAG(
 
     task_unificando_dados_avenue = PythonOperator(
         task_id='unificando_dados_avenue',
-        python_callable=create_file_avenue
+        python_callable=unificando
     )
 
     task_tratamento_avenue = PythonOperator(
@@ -95,6 +100,22 @@ with DAG(
     task_id='adicionando_cotacao_acao',
     python_callable=add_valor_acao
     )
+
+    task_criando_datasets_clear = PythonOperator(
+    task_id='criando_datasets_clear',
+    python_callable=criando_datasets_clear
+    )
+    
+    task_criando_carteira_clear = PythonOperator(
+    task_id='criando_carteira_clear',
+    python_callable=criando_carteira_clear
+    )
+    
+    task_criando_tabela_carteria = PythonOperator(
+    task_id='criando_tabela_carteria',
+    python_callable=criando_tabela_carteria
+    )
+    
 
     task_create_bucket = GCSCreateBucketOperator(
     task_id='criando_bucket',
@@ -154,7 +175,11 @@ with DAG(
     task_tratamento_avenue >> task_create_historic >> task_create_carteira
     task_create_carteira >> task_add_valor_acao >> task_add_value
 
+    task_criando_datasets_clear >>  task_criando_carteira_clear
+
+    [task_criando_carteira_clear,task_add_value] >> task_criando_tabela_carteria
+
     task_create_dataset >> delete_table  >> task_create_table
     task_create_bucket >> task_send_gcs 
 
-    task_add_value >> task_send_gcs >> task_create_table
+    task_criando_tabela_carteria >> task_send_gcs >> task_create_table

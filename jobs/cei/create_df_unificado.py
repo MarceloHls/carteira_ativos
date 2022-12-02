@@ -17,10 +17,10 @@ for variable in variables.keys():
 
 
 def unificando():
-
-    columns = ['Data','Hora','Liquidação','Descrição','Valor (U$)','Saldo da conta (U$)']
-    df_avenue = create_df(bucket_name='datalake_carteira',pref='raw/avenue_dados',columns=columns)
+    pref = 'raw/cei/posicao'
+    # columns = ['Data','Hora','Liquidação','Descrição','Valor (U$)','Saldo da conta (U$)']
+    df_avenue = create_df(bucket_name='datalake_carteira',pref=pref)
     print(df_avenue)
-    df_avenue.to_csv(variables['DATALAKE_WORK'] + "dados_avenue.csv",index=False,sep=',')
+    # df_avenue.to_csv(variables['DATALAKE_WORK'] + "dados_avenue.csv",index=False,sep=',')
             
 unificando()

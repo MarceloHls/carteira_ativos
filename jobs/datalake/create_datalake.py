@@ -9,6 +9,7 @@ paths = {
 
 def create_datalake():
     local = str(Path().cwd()) + '/'
+    Path(local + 'data').mkdir(exist_ok=True)
     for path in paths.keys():
         Path(local + paths[path]).mkdir(exist_ok=True)
         

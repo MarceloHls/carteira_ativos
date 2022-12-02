@@ -33,5 +33,10 @@
         "name": "Valor_atual",
         "type": "FLOAT64",
         "mode": "NULLABLE"
+    },
+    {
+        "name": "Tipo",
+        "type": "STRING",
+        "mode": "NULLABLE"
     }
 ]

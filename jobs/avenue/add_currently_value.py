@@ -15,7 +15,6 @@ for variable in variables.keys():
 def __create_valor_atual_investido(df_carteira:pd.DataFrame):
     df_carteira['Valor_atual'] = 0
     for i in range(len(df_carteira)):
-        print(df_carteira)
         quantidade = df_carteira.iloc[i,2]
         valor_atual = df_carteira.iloc[i,4]
         df_carteira.iloc[i,6] = round(quantidade*valor_atual,2)
@@ -33,4 +32,7 @@ def add_value():
     df_carteira = pd.read_csv(variables['DATALAKE_WORK'] + 'carteira_part_02' + '.csv')
     df_carteira = __create_valor_atual_investido(df_carteira)
     # df_carteira = __create_currently_posicao(df_carteira)
-    df_carteira.to_csv(variables['DATALAKE_TRUSTED'] + 'TB_CARTEIRA' + '.csv', index=None)
+    print(df_carteira)
+    df_carteira.to_csv(variables['DATALAKE_WORK'] + 'tb_carteira_avenue' + '.csv', index=None)
+
+add_value()
